@@ -8,8 +8,8 @@ public class MainQLSP {
         Scanner scanner= new Scanner(System.in);
         while (true){
 
-            System.out.println("1. Xem toàn bộ danh sách sản phẩm");
-            System.out.println("2. Thêm sản phẩm mới");
+            System.out.println("1. Xem toàn bộ danh sách sản phẩm->VUI LÒNG TRỌN 7 TRƯỚC ĐỂ LOAD LIST ĐÃ LƯU TRONG FILE");
+            System.out.println("2. Thêm sản phẩm mới-> SAU ĐÓ CHỌN 8 ĐỂ LƯU LẠI SẢN PHẨM BẠN THÊM VÀO FILE");
             System.out.println("3. Cập nhật sản phẩm");
             System.out.println("4. Xóa sản phẩm");
             System.out.println("5. Sắp xếp sản phẩm theo mã sản phẩm");
@@ -56,7 +56,8 @@ public class MainQLSP {
                     if(choose==1){
                         System.out.println("Nhập mã code sản phẩm cần xóa");
                         String code4= scanner.nextLine();
-                        manager.delete(code4);
+                        manager.
+                                delete(code4);
                     }else {
                         return;
                     }
