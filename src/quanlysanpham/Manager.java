@@ -1,8 +1,6 @@
 package quanlysanpham;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -82,5 +80,44 @@ public class Manager {
     public void sortPrice(){
         SortSPTheoGia sortSPTheoGia=new SortSPTheoGia();
         list.sort(sortSPTheoGia);
+    }
+    public void writeFile(){
+        try {
+            FileWriter fileWriter=new FileWriter(sanPham);
+            bufferedWriter= new BufferedWriter(fileWriter);
+            bufferedWriter.write(tieude);
+            for(SanPham sp: list){
+                bufferedWriter.newLine();
+                bufferedWriter.write(sp.show());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                bufferedWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public ArrayList<SanPham> readFile(){
+        ArrayList<SanPham> list= new ArrayList<>();
+        try {
+            FileReader fileReader= new FileReader(sanPham);
+            bufferedReader= new BufferedReader(fileReader);
+            String line= bufferedReader.readLine();
+            while ((line=bufferedReader.readLine())!=null){
+                //String code, String name, double price, int amount, String describe
+                String[] arrStr=line.split(",");
+                list.add(new SanPham(arrStr[0],arrStr[1],Double.parseDouble(arrStr[2]),Integer.parseInt(arrStr[3]),arrStr[4]));
+                //System.out.println(line);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }

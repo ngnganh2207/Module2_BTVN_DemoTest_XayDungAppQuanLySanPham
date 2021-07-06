@@ -17,7 +17,7 @@ public class MainQLSP {
             System.out.println("7. Đọc từ file");
             System.out.println("8. Ghi vào file");
             System.out.println("9. Exit");
-            int choice=0;
+            int choice=-1;
             try{
                 choice= Integer.parseInt(scanner.nextLine());
             }catch (Exception e){
@@ -67,6 +67,12 @@ public class MainQLSP {
                 case 6:
                     manager.sortPrice();
                     System.out.println("Sản phâm giá đắt nhất là: "+"Mã code: "+ manager.list.get((manager.list.size())-1).getCode()+ "Tên sp: "+manager.list.get((manager.list.size())-1).getName()+" Giá: "+ manager.list.get((manager.list.size())-1).getPrice());
+                    break;
+                case 7:
+                    manager.list=manager.readFile();
+                    break;
+                case 8:
+                    manager.writeFile();
                     break;
             }
         }

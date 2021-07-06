@@ -59,6 +59,6 @@ public class SanPham {
     }
 
     public String show() {
-        return code+", " + name+ ", " + price +", " + amount+", "+ describe;
+        return code+"," + name+ "," + price +"," + amount+","+ describe;
     }
 }
